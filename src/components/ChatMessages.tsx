@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useEffect, useRef } from "react";
@@ -19,7 +18,9 @@ export const ChatMessages = ({ messages }: ChatMessagesProps) => {
 
   useEffect(() => {
     if (scrollAreaRef.current) {
-      const scrollContainer = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]');
+      const scrollContainer = scrollAreaRef.current.querySelector(
+        "[data-radix-scroll-area-viewport]"
+      );
       if (scrollContainer) {
         scrollContainer.scrollTop = scrollContainer.scrollHeight;
       }
@@ -66,7 +67,7 @@ export const ChatMessages = ({ messages }: ChatMessagesProps) => {
   };
 
   return (
-    <Card className="bg-white/70 backdrop-blur-sm border-2">
+    <Card className="bg-white/70 backdrop-blur-sm border-2 h-[35rem]">
       <CardHeader>
         <CardTitle className="flex items-center space-x-2">
           <span>💬 AI Conversation</span>
@@ -83,10 +84,14 @@ export const ChatMessages = ({ messages }: ChatMessagesProps) => {
               {messages.map((message) => (
                 <div
                   key={message.id}
-                  className={`p-4 rounded-lg ${getMessageStyle(message.sender)} fade-in`}
+                  className={`p-4 rounded-lg ${getMessageStyle(
+                    message.sender
+                  )} fade-in`}
                 >
                   <div className="flex items-center space-x-2 mb-2">
-                    <span className="text-lg">{getSenderIcon(message.sender)}</span>
+                    <span className="text-lg">
+                      {getSenderIcon(message.sender)}
+                    </span>
                     <span className="font-semibold text-sm">
                       {getSenderName(message.sender)}
                     </span>
